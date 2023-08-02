@@ -1,21 +1,28 @@
 # TASK
 ##task which are given everyday........
 
-```
-1-08-2023
+# 1-08-2023
 MY SQL 
 create one instance.use any ami (ubuntu).then inside that instance install my sql -[sudo apt update] [sudo apt install mysql-server].
 after installing my sql, create a user (%) with password -[create user "(type your username)"@"(hostname(local,%))" IDENTIFIED BY "(type your password here)"].
 after creating user, Access the user from your local system and make some tables or data in it....
 
-SOLUTION-----------
-first of all we have to create an instance using ubuntu AMI.
-launch the instance and connect it through ssh on terminal.
-type ssh -i "your key" ubuntu@(your publicip).compute-1.amazonaws.com
-after connecting the instance, 
-type (sudo apt update) cmd in terminal.
-install my sql server,
-type (sudo apt install mysql-server).
+# SOLUTION-----------
+### first of all we have to create an instance using ubuntu AMI.
+### launch the instance and connect it through ssh on terminal.
+```
+ssh -i "your key" ubuntu@(your publicip).compute-1.amazonaws.com
+```
+### after connecting the instance, type -
+```
+(sudo apt update)
+```
+### in cmd in terminal.
+### install my sql server,
+### type - 
+```
+sudo apt install mysql-server
+```
 type (sudo mysql) to use mysql services
 to create a user type these command given below-
 show databases;
