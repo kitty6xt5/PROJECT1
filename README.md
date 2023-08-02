@@ -1,7 +1,7 @@
 # TASK
 ##task which are given everyday........
 
-
+```
 1-08-2023
 MY SQL 
 create one instance.use any ami (ubuntu).then inside that instance install my sql -[sudo apt update] [sudo apt install mysql-server].
@@ -37,3 +37,4 @@ type- mysql -u (username) -h (ip address) -P (port 3306) -p
 then ENTER password.
 somehow we are unable to access it so we have to change some permissions in mysql.conf.d
 to access mysql.conf.d path is - /etc/mysql/mysql.conf.d
+```
