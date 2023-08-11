@@ -12,19 +12,19 @@ if the data doesn't match it will show us a popup invalid user or password.
 
 # SOLUTION-------------------------------
 ### first of all we have to create an instance using ubuntu AMI.
-<img src="https://github.com/kitty6xt5/SECRET/blob/main/Screenshot%20from%202023-08-10%2000-27-37.png">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/ami.png">
 
 ### launch the instance and connect it through ssh on terminal.
 ```
 ssh -i "your key" ubuntu@(your publicip).compute-1.amazonaws.com
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/ssh.png">
 
 ### after connecting the instance, type -
 ```
 sudo apt update
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/aptupdate.png">
 
 ### in cmd in terminal.
 ### Now we have to install some required services to move further in our process.
@@ -32,7 +32,7 @@ sudo apt update
 ```
 sudo apt install apache2
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/insapache2.png">
 
 ### after installation of apache2 services. start the servcies type -
 ```
@@ -48,14 +48,14 @@ systemctl enable apache2
 ```
 sudo apt install mysql-server
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/installmysql.png">
 
 ## NOTE- change the bind address from ```127.0.0.1``` to ```0.0.0.0``` in ```mysqld.conf``` file.
 ### type -
 ```
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/bindaddress.png">
 
 ### then start mysql services-
 ```
@@ -66,7 +66,7 @@ sudo systemctl start mysql
 ```
 sudo apt install php libapache2-mod-php php-mysql
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/libapache.png">
 
 ### Configure Apache:
 ### Make sure Apache is running: 
@@ -89,7 +89,7 @@ sudo chmod -R 755 /var/www/html
 ```
 sudo mysql -u root 
 ```
-<img src= "">
+<img src= "https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/mysql-u-root.png">
 
 ### Create a new database: 
 
@@ -102,7 +102,7 @@ create database your_database_name;
 ```
 CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 ```
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/create-user.png">
 
 ### to grant all the access to your database
 
@@ -110,7 +110,7 @@ CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
 ```
 
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/grantall.png">
 
 ### then type -
 
@@ -119,7 +119,7 @@ FLUSH PRIVILEGES;
 
 ```
 
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/flush.png">
 
 ### Create your project files here in  ```/var/www/html/```  for your project.
 
@@ -128,7 +128,7 @@ cd /var/www/html/
 
 ```
 
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/cd-var-www-html.png">
 
 
 ### Here the main thing starts-
@@ -180,7 +180,7 @@ function validateForm() {
 ### Your page will look like this on internet browser ---
 
 
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/registerpage.png">
 
 
 
@@ -215,7 +215,7 @@ sudo vim login.html
 ### Your page will look like this on internet browser ---
 
 
-<img src="">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/loginpage.png">
 
 
 ### signup and login pages are done. now we have to create a database page ```database.php``` for the user data which will help us in login of user..
