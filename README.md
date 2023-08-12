@@ -1,7 +1,7 @@
-# PROJECT-1 
+# PROJECT-1
+## 
 ## PROJECT IS DIVIDED INTO THREE PARTS
 ## PART-1
-### OVER-VIEW DIAGRAM
 ### ROADMAP
 
 
@@ -734,7 +734,7 @@ select * from table_name;
 ### ROADMAP
 
 Now we have to use master instance as registration database and slave instance as login database by which, whenever user type information on registration page it will be saved in master instance and replicate the data in slave instance and whenever user try to login then it will use slave instance to cross verify the user data and give access.
-# SOLUTION----------------------------------------------------------------------------
+### SOLUTION----------------------------------------------------------------------------
 ### To do this task firstly, we have to change the ```servername``` from ```localhost``` to `public-ip` of master instance in database.php which we created in /html/.
 ### Go to your website instance,connect your instance. After the connection type-
 ```
