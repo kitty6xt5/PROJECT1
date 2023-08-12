@@ -1,6 +1,10 @@
 # PROJECT-1 
 ## PROJECT IS DIVIDED INTO THREE PARTS
-## DATABASE
+## PART-1
+### OVER-VIEW DIAGRAM
+### ROADMAP
+
+
 create an instance, make two html pages. On page 1 we have to make a registration page which includes -
 user, password, email, phone number.
 it also includes a submit button and already a user log-in button.
@@ -10,61 +14,61 @@ All the data we are typing on these pages will go in the EC2 database.
 if the data matches with the database it will take us to the welcome page.
 if the data doesn't match it will show us a popup invalid user or password.
 
-# SOLUTION-------------------------------
-### first of all we have to create an instance using ubuntu AMI.
+### SOLUTION-------------------------------
+### First of all we have to create an instance using ubuntu AMI.
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/ami.png">
 
-### launch the instance and connect it through ssh on terminal.
+### Launch the instance and connect it through ssh on terminal.
 ```
 ssh -i "your key" ubuntu@(your publicip).compute-1.amazonaws.com
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/ssh.png">
 
-### after connecting the instance, type -
+### After connecting the instance, type -
 ```
 sudo apt update
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/aptupdate.png">
 
-### in cmd in terminal.
+### In cmd in terminal.
 ### Now we have to install some required services to move further in our process.
-### for web browsing we have to install  ```apache2```. to install apache2 services we have to type the command for installation which is -
+### For web browsing we have to install  ```apache2```. to install apache2 services we have to type the command for installation which is -
 ```
-sudo apt install apache2
+sudo apt install apache2 -y
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/insapache2.png">
 
-### after installation of apache2 services. start the servcies type -
+### After installation of apache2 services. start the servcies type -
 ```
 sudo systemctl start apache2
 ```
-### enable the apache2 services, type -
+### Enable the apache2 services, type -
 ```
-systemctl enable apache2
+sudo systemctl enable apache2
 
 ```
 ### Now Install the mysql server,
-### type - 
+### Type - 
 ```
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/installmysql.png">
 
 ## NOTE- change the bind address from ```127.0.0.1``` to ```0.0.0.0``` in ```mysqld.conf``` file.
-### type -
+### Type -
 ```
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/bindaddress.png">
 
-### then start mysql services-
+### Then start mysql services-
 ```
 sudo systemctl start mysql
 
 ```
-### install the PHP service for backend service-
+### Install the PHP service for backend service-
 ```
-sudo apt install php libapache2-mod-php php-mysql
+sudo apt install php libapache2-mod-php php-mysql -y
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/libapache.png">
 
@@ -82,7 +86,7 @@ sudo chmod -R 755 /var/www/html
 
 ```
 
-### Create a MySQL database and user
+### Create a MySQL User and Database
 
 ### Log in to MySQL: 
 
@@ -91,11 +95,7 @@ sudo mysql -u root
 ```
 <img src= "https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/mysql-u-root.png">
 
-### Create a new database: 
 
-```
-create database your_database_name;
-```
 
 ### Create a new user and grant privileges to the database:
 
@@ -104,7 +104,34 @@ CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 ```
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/create-user.png">
 
-### to grant all the access to your database
+### Then type -
+
+```
+FLUSH PRIVILEGES;
+
+```
+
+### Create a new database: 
+
+```
+create database your_database_name;
+```
+
+
+### Type -
+```
+use your_database_name;
+```
+### Type to create your table.
+```
+create table yourtablename (userame varchar(50), password varchar(50), email varchar(50), phone int(50)); 
+```
+### To see your database is created type -
+```
+select * from your_table_name;
+````
+
+### To grant all the access to your database
 
 ```
 GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
@@ -112,12 +139,13 @@ GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
 
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/grantall.png">
 
-### then type -
+### Then type -
 
 ```
 FLUSH PRIVILEGES;
 
 ```
+
 
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/flush.png">
 
@@ -185,12 +213,12 @@ function validateForm() {
 
 
 
-### press escape ```esc``` button and type ```:wq``` and come out from  vim editor.
-### now create the ```login.html``` page by typing -
+### Press escape ```esc``` button and type ```:wq``` and come out from  vim editor.
+### Now create the ```login.html``` page by typing -
 ```
 sudo vim login.html
 ```
-### copy paste the script in ```login.html``` which is given below-
+### Copy paste the script in ```login.html``` which is given below-
 ```
 <!DOCTYPE html>
 <html>
@@ -218,14 +246,15 @@ sudo vim login.html
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/loginpage.png">
 
 
-### signup and login pages are done. now we have to create a database page ```database.php``` for the user data which will help us in login of user..
+### Signup and login pages are done. now we have to create a database page ```database.php``` for the user data which will help us in login of user..
 
 ### To create a ``` database.php``` page type -
 ```
 sudo vim database.php
 ```
 
-### copy paste the script given below in ```database.php``` page-
+### Copy paste the script given below in ```database.php``` page.
+
 
 ```
 <?php
@@ -267,15 +296,15 @@ $conn->close();
 
 ### After making the ```database.php```page now we have to do the backend work.
 
-### now we have to make the ```.php``` page for the ```signup.html``` page.we will name that page ```index.php```
+### Now we have to make the ```.php``` page for the ```signup.html``` page.we will name that page ```index.php```
 
-### to create the ```index.php``` page type -
+### To create the ```index.php``` page type -
 
 ```
 sudo vim index.php
 ```
 
-### copy paste the script which is given below in the ```index.php``` page.
+### Copy paste the script which is given below in the ```index.php``` page.
 
 ```
 <?php
@@ -322,14 +351,14 @@ if (isset($_SESSION["user_id"])) {
 </html>
 ```
 
-### now we have to make the ```.php``` page for the ```login.html``` page.we will name that page ```login.php```.
-### to create the ```login.php``` page type -
+### Now we have to make the ```.php``` page for the ```login.html``` page.we will name that page ```login.php```.
+### To create the ```login.php``` page type -
 
 ```
 sudo vim login.php
 ```
 
-### copy paste the script in ```login.php``` page-
+### Copy paste the script in ```login.php``` page-
 ```
 <?php
 // Replace 'your_db_host', 'your_db_username', 'your_db_password', and 'your_db_name' with your database credentials
@@ -375,33 +404,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 ```
-### now we have to create the table in the  ```my sql```  for our users- name,password,email and phone number.
+### Now we have to create the table in the  ```my sql```  for our users- name,password,email and phone number.
 ### Log in to MySQL: 
 
 ```
 sudo mysql -u your_useer_name -p 
 ```
-### type -
+### Type -
 ```
 show databases;
 ```
-### type -
+### Type -
 ```
 use your_database_name;
 ```
-### type to create your table.
+### Type to create your table.
 ```
 create table yourtablename (userame varchar(50), password varchar(50), email varchar(50), phone int(50)); 
 ```
-### to see your database is created type -
+### To see your database is created type -
 ```
 select * from your_table_name;
 ````
-### now you have created table for data entry and everything is done...
+### Now you have created table for data entry and everything is done...
 
-# TASK -2
+## PART-2
 create two instances.we have to create a database in instance one and whenever we type some information in database..it shows us in our second instance too... (master and slave data replication with the help of mysql)
-# SOLUTION------------------------------------------
+### SOLUTION------------------------------------------
 ### To set up MySQL database replication between two AWS Ubuntu instances, where Instance 1 acts as the master and Instance 2 acts as the slave, follow these steps:
 ### 1- Install MySQL on both instances:
 ### SSH into each AWS Ubuntu instance and install MySQL server:
@@ -421,7 +450,7 @@ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 server-id=1
 log_bin = /var/log/mysql/mysql-bin.log
 ```
-### i am showing an example how my ```mysqld.cnf``` file looks like-
+### I am showing an example how my ```mysqld.cnf``` file looks like-
 ```
 #
 # The MySQL database server configuration file.
@@ -528,7 +557,7 @@ SHOW MASTER STATUS;
 
 ```
 ## NOTE - You'll need the values of File and Position for configuring the slave later.
-### lets move on the instance-2]
+### Lets move on the instance-2]
 ### 1- Configure MySQL on the slave (Instance 2):
 ### Open the MySQL configuration file on the slave server:
 ```
@@ -538,7 +567,7 @@ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 server-id=2
 ```
-### i am showing an example how my ```mysqld.cnf``` file looks like-
+### I am showing an example how my ```mysqld.cnf``` file looks like-
 ```
 
 # The MySQL database server configuration file.
@@ -652,7 +681,7 @@ SHOW SLAVE STATUS\G
 ```
 ### Check the ```Slave_IO_Running``` and ```Slave_SQL_Running``` fields to ensure both are Yes.
 
-### now we have to go to the master instance (instance1) and login to mysql to create a database and insert a table.
+### Now we have to go to the master instance (instance1) and login to mysql to create a database and insert a table.
 ### Log in to MySQL: 
 
 ```
@@ -669,8 +698,8 @@ show databases;
 ```
 use your_database_name;
 ```
-### create anytype of table you want to create.i am taking an example of creating an employee
-### table which is -
+### Create anytype of table you want to create.i am taking an example of creating an employee
+### Table which is -
 ```
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
@@ -680,29 +709,29 @@ CREATE TABLE employees (
     department VARCHAR(100)
 );
 ```
-### to see your tables type-
+### To see your tables type-
 ```
 show tables;
 ```
-### to insert data in your table type-
+### To insert data in your table type-
 ```
 insert into table_name ('name','city','standard') values('kitty','england','A');
 ```
-### to see what data have you typed in your table type -
+### To see what data have you typed in your table type -
 ```
 select * from table_name;
 ```
-### now check the entry in slave instance.
+### Now check the entry in slave instance.
 
 ### Everything is done and With these steps, you should have set up MySQL database replication between the two AWS Ubuntu instances. Any changes made to the master database on Instance 1 will now be replicated to the slave database on Instance 2.
 
-# PART-3
+## PART-3
 
-# OVER-VIEW DIAGRAM
+### OVER-VIEW DIAGRAM
 
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Doc-Part3/Untitled%20Diagram.jpg">
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Doc-Part3/PART3.jpg">
 
-# ROAD MAP
+### ROADMAP
 
 Now we have to use master instance as registration database and slave instance as login database by which, whenever user type information on registration page it will be saved in master instance and replicate the data in slave instance and whenever user try to login then it will use slave instance to cross verify the user data and give access.
 # SOLUTION----------------------------------------------------------------------------
