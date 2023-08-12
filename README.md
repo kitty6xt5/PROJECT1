@@ -1,9 +1,9 @@
 # PROJECT-1
-## 
+## ***HOSTING A HTML WEBSITE WITH DATA REPLICATION IN MASTER AND SLAVE INSTANCES***
 ## PROJECT IS DIVIDED INTO THREE PARTS
 ## PART-1
-### ROADMAP
 
+### ROADMAP
 
 create an instance, make two html pages. On page 1 we have to make a registration page which includes -
 user, password, email, phone number.
@@ -429,6 +429,12 @@ select * from your_table_name;
 ### Now you have created table for data entry and everything is done...
 
 ## PART-2
+### OVER-VIEW DIAGRAM
+
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Doc-Part2/PART2.jpg">
+
+### ROUTEMAP
+
 create two instances.we have to create a database in instance one and whenever we type some information in database..it shows us in our second instance too... (master and slave data replication with the help of mysql)
 ### SOLUTION------------------------------------------
 ### To set up MySQL database replication between two AWS Ubuntu instances, where Instance 1 acts as the master and Instance 2 acts as the slave, follow these steps:
