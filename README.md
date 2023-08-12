@@ -696,7 +696,14 @@ select * from table_name;
 
 ### Everything is done and With these steps, you should have set up MySQL database replication between the two AWS Ubuntu instances. Any changes made to the master database on Instance 1 will now be replicated to the slave database on Instance 2.
 
-# TASK-3
+# PART-3
+
+# OVER-VIEW DIAGRAM
+
+<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Doc-Part3/Untitled%20Diagram.jpg">
+
+# ROAD MAP
+
 Now we have to use master instance as registration database and slave instance as login database by which, whenever user type information on registration page it will be saved in master instance and replicate the data in slave instance and whenever user try to login then it will use slave instance to cross verify the user data and give access.
 # SOLUTION----------------------------------------------------------------------------
 ### To do this task firstly, we have to change the ```servername``` from ```localhost``` to `public-ip` of master instance in database.php which we created in /html/.
