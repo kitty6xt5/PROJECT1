@@ -426,7 +426,7 @@ create table yourtablename (userame varchar(50), password varchar(50), email var
 ```
 select * from your_table_name;
 ````
-### Now you have created table for data entry and everything is done...
+### Now you have created table for data entry and everything is done...lets move on part 2.
 
 ## PART-2
 ### OVER-VIEW DIAGRAM
