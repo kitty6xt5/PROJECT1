@@ -55,6 +55,9 @@ sudo apt install mysql-server -y
 <img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/installmysql.png">
 
 ## NOTE- change the bind address from ```127.0.0.1``` to ```0.0.0.0``` in ```mysqld.conf``` file.
+
+## To know more about bind address click on this link  https://www.ibm.com/docs/en/cics-tg-zos/9.3.0?topic=hps-bind-address
+
 ### Type -
 ```
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -97,7 +100,7 @@ sudo mysql -u root
 
 
 
-### Create a new user and grant privileges to the database:
+### Create a new user and a Database then after that grant privileges to the database:
 
 ```
 CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
@@ -117,21 +120,12 @@ FLUSH PRIVILEGES;
 create database your_database_name;
 ```
 
-
-### Type -
-```
-use your_database_name;
-```
-### Type to create your table.
-```
-create table yourtablename (userame varchar(50), password varchar(50), email varchar(50), phone int(50)); 
-```
 ### To see your database is created type -
 ```
-select * from your_table_name;
+show databases;
 ````
 
-### To grant all the access to your database
+### To grant all the access to your user on that database type-
 
 ```
 GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
@@ -404,7 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 ```
-### Now we have to create the table in the  ```my sql```  for our users- name,password,email and phone number.
+### Now we have to create the table in the  ```my sql```  for our incoming users which will provide us their data in this form-(name,password,email and phone number).
 ### Log in to MySQL: 
 
 ```
@@ -414,7 +408,12 @@ sudo mysql -u your_useer_name -p
 ```
 show databases;
 ```
+### Select that database which you created earlier.
+
+
 ### Type -
+
+
 ```
 use your_database_name;
 ```
@@ -422,7 +421,7 @@ use your_database_name;
 ```
 create table yourtablename (userame varchar(50), password varchar(50), email varchar(50), phone int(50)); 
 ```
-### To see your database is created type -
+### To see your table is created type -
 ```
 select * from your_table_name;
 ````
