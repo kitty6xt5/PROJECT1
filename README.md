@@ -16,19 +16,19 @@ if the data doesn't match it will show us a popup invalid user or password.
 
 ### SOLUTION-------------------------------
 ### First of all we have to create an instance using ubuntu AMI.
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/ami.png">
+![ami](https://github.com/kitty6xt5/PROJECT1/assets/141032592/8914f89a-fbf2-4c69-ac83-2c780f684b84)
 
 ### Launch the instance and connect it through ssh on terminal.
 ```
 ssh -i "your key" ubuntu@(your publicip).compute-1.amazonaws.com
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/ssh.png">
+![ssh](https://github.com/kitty6xt5/PROJECT1/assets/141032592/3edec09a-1219-4bb3-8562-9204d28f5acb)
 
 ### After connecting the instance, type -
 ```
 sudo apt update
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/aptupdate.png">
+![aptupdate](https://github.com/kitty6xt5/PROJECT1/assets/141032592/8ebcf826-b491-4aee-9961-679476941611)
 
 ### In cmd in terminal.
 ### Now we have to install some required services to move further in our process.
@@ -36,7 +36,7 @@ sudo apt update
 ```
 sudo apt install apache2 -y
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/insapache2.png">
+![insapache2](https://github.com/kitty6xt5/PROJECT1/assets/141032592/b9a6408b-d11f-416c-80ff-c77b27b90a4f)
 
 ### After installation of apache2 services. start the servcies type -
 ```
@@ -52,7 +52,7 @@ sudo systemctl enable apache2
 ```
 sudo apt install mysql-server -y
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/installmysql.png">
+![installmysql](https://github.com/kitty6xt5/PROJECT1/assets/141032592/4f658aac-c854-4c3d-900b-d5d7868e5974)
 
 ## NOTE- change the bind address from ```127.0.0.1``` to ```0.0.0.0``` in ```mysqld.conf``` file.
 
@@ -62,7 +62,7 @@ sudo apt install mysql-server -y
 ```
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/bindaddress.png">
+![bindaddress](https://github.com/kitty6xt5/PROJECT1/assets/141032592/e80918a0-0181-47d5-9371-811646f2f5b1)
 
 ### Then start mysql services-
 ```
@@ -73,7 +73,7 @@ sudo systemctl start mysql
 ```
 sudo apt install php libapache2-mod-php php-mysql -y
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/libapache.png">
+![libapache](https://github.com/kitty6xt5/PROJECT1/assets/141032592/683add87-bcf6-4357-85a3-6c3a0053f4b8)
 
 ### Configure Apache:
 ### Make sure Apache is running: 
@@ -96,7 +96,7 @@ sudo chmod -R 755 /var/www/html
 ```
 sudo mysql -u root 
 ```
-<img src= "https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/mysql-u-root.png">
+![mysql-u-root](https://github.com/kitty6xt5/PROJECT1/assets/141032592/0f262dc5-3b6a-4865-bada-ac8fa0cb6ed6)
 
 
 
@@ -105,7 +105,7 @@ sudo mysql -u root
 ```
 CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';
 ```
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/create-user.png">
+![create-user](https://github.com/kitty6xt5/PROJECT1/assets/141032592/160820f5-e51f-4fa4-bed6-635f4d2cc132)
 
 ### Then type -
 
@@ -131,7 +131,7 @@ show databases;
 GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';
 ```
 
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/grantall.png">
+![grantall](https://github.com/kitty6xt5/PROJECT1/assets/141032592/5a16a483-0b82-485e-830d-f9b24103b635)
 
 ### Then type -
 
@@ -141,7 +141,7 @@ FLUSH PRIVILEGES;
 ```
 
 
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/flush.png">
+![flush](https://github.com/kitty6xt5/PROJECT1/assets/141032592/52822aa5-ff08-45e2-9238-9ab43bf9cbf5)
 
 ### Create your project files here in  ```/var/www/html/```  for your project.
 
@@ -150,7 +150,7 @@ cd /var/www/html/
 
 ```
 
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/cd-var-www-html.png">
+![cd-var-www-html](https://github.com/kitty6xt5/PROJECT1/assets/141032592/53ffe5db-ebb4-4a62-8e97-76b3fb795256)
 
 
 ### Here the main thing starts-
@@ -202,7 +202,7 @@ function validateForm() {
 ### Your page will look like this on internet browser ---
 
 
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/registerpage.png">
+![registerpage](https://github.com/kitty6xt5/PROJECT1/assets/141032592/4b901024-c5f1-4d6d-a318-6d82cb57e774)
 
 
 
@@ -237,7 +237,7 @@ sudo vim login.html
 ### Your page will look like this on internet browser ---
 
 
-<img src="https://github.com/kitty6xt5/PROJECT1/blob/main/Photos/loginpage.png">
+![loginpage](https://github.com/kitty6xt5/PROJECT1/assets/141032592/9c5aecc0-fb91-4a0f-a7c9-f8938d9fecd1)
 
 
 ### Signup and login pages are done. now we have to create a database page ```database.php``` for the user data which will help us in login of user..
