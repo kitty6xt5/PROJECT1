@@ -15,7 +15,7 @@ if the data matches with the database it will take us to the welcome page.
 if the data doesn't match it will show us a popup invalid user or password.
 
 ### SOLUTION-------------------------------
-### First of all we have to create an instance using ubuntu AMI.
+### First of all we have to launch an instance using ubuntu AMI.
 ![ami](https://github.com/kitty6xt5/PROJECT1/assets/141032592/8914f89a-fbf2-4c69-ac83-2c780f684b84)
 
 ### Launch the instance and connect it through ssh on terminal.
