@@ -22,7 +22,8 @@ if the data doesn't match it will show us a popup invalid user or password.
 ```
 ssh -i "your key" ubuntu@(your publicip).compute-1.amazonaws.com
 ```
-![ssh](https://github.com/kitty6xt5/PROJECT1/assets/141032592/3edec09a-1219-4bb3-8562-9204d28f5acb)
+![ssh](https://github.com/kitty6xt5/PROJECT1/assets/141032592/c3b02fdf-de42-4f98-a596-d857fc98ba05)
+
 
 ### After connecting the instance, type -
 ```
